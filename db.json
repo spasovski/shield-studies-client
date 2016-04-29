@@ -1,0 +1,22 @@
+{
+  "studies": {
+    "studies": [
+      {
+        "id": 1,
+        "name": "Fake Study A"
+      },
+      {
+        "id": 2,
+        "name": "Fake Study B"
+      },
+      {
+        "id": 3,
+        "name": "Fake Study C"
+      },
+      {
+        "id": 4,
+        "name": "Fake Study D"
+      }
+    ]
+  }
+}
