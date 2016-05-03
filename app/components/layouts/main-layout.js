@@ -5,9 +5,9 @@ export default function(props) {
   return (
     <div className="global-wrapper">
       <header className="primary-header">
-        <h1>SHIELD Studies</h1>
+        <h1>SHIELD Dashboard</h1>
         <aside>
-          signed in as: dspasovski
+          <div className="g-signin2" data-onsuccess="onSignIn"></div>
         </aside>
       </header>
       <main>{props.children}</main>
