@@ -21801,7 +21801,6 @@
 	
 	  switch (action.type) {
 	    case types.GET_STUDIES_SUCCESS:
-	      console.log('hmm', action.studies);
 	      return Object.assign({}, state, { studies: action.studies });
 	  }
 	
@@ -21820,7 +21819,6 @@
 	  value: true
 	});
 	var GET_STUDIES_SUCCESS = exports.GET_STUDIES_SUCCESS = 'GET_STUDIES_SUCCESS';
-	var LOAD_STUDIES_LAYOUT = exports.LOAD_STUDIES_LAYOUT = 'LOAD_STUDIES_LAYOUT';
 
 /***/ },
 /* 196 */
@@ -21858,11 +21856,7 @@
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { component: _mainLayout2.default },
-	    _react2.default.createElement(
-	      _reactRouter.Route,
-	      { path: '/' },
-	      _react2.default.createElement(_reactRouter.Route, { component: _studyListContainer2.default })
-	    )
+	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _studyListContainer2.default })
 	  )
 	);
 	
@@ -27285,12 +27279,12 @@
 	        "h1",
 	        null,
 	        "SHIELD Studies"
+	      ),
+	      _react2.default.createElement(
+	        "aside",
+	        null,
+	        "signed in as: dspasovski"
 	      )
-	    ),
-	    _react2.default.createElement(
-	      "aside",
-	      null,
-	      "Logged in as: dspasovski"
 	    ),
 	    _react2.default.createElement(
 	      "main",
@@ -27338,18 +27332,14 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//import {getStudiesSuccess} from '../../actions/study-actions';
-	//import {loadStudyList} from '../../actions/study-list-actions';
-	
 	var StudyListContainer = _react2.default.createClass({
 	  displayName: 'StudyListContainer',
 	
-	  componentDidMount: function componentDidMount() {
+	  componentWillMount: function componentWillMount() {
 	    studyApi.getStudies();
-	    //store.dispatch(getStudiesSuccess());
 	  },
 	  render: function render() {
-	    return _react2.default.createElement(_studyList2.default, { studies: this.props.studies });
+	    return _react2.default.createElement(_studyList2.default, this.props);
 	  }
 	});
 	
@@ -27379,7 +27369,20 @@
 	      return _react2.default.createElement(
 	        "li",
 	        { key: study.id, className: "study-list-item" },
-	        study.name
+	        _react2.default.createElement(
+	          "h2",
+	          { className: "study-list-heading" },
+	          _react2.default.createElement(
+	            "a",
+	            { href: "#" },
+	            study.name
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          study.description
+	        )
 	      );
 	    })
 	  );
@@ -27421,8 +27424,9 @@
 	function getStudies() {
 	  return _axios2.default.get(endpoints.GET_STUDIES).then(function (response) {
 	    _store2.default.dispatch((0, _studyActions.getStudiesSuccess)(response.data));
-	    console.log('data found', response.data);
 	    return response;
+	  }).catch(function (err) {
+	    console.error(err);
 	  });
 	}
 

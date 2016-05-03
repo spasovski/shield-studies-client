@@ -9,7 +9,8 @@ const endpoints = {
 export function getStudies() {
   return axios.get(endpoints.GET_STUDIES).then(response => {
     store.dispatch(getStudiesSuccess(response.data));
-    console.log('data found', response.data);
     return response;
+  }).catch(err => {
+    console.error(err);
   });
 }

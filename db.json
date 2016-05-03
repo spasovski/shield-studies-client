@@ -1,22 +1,24 @@
 {
-  "studies": {
-    "studies": [
-      {
-        "id": 1,
-        "name": "Fake Study A"
-      },
-      {
-        "id": 2,
-        "name": "Fake Study B"
-      },
-      {
-        "id": 3,
-        "name": "Fake Study C"
-      },
-      {
-        "id": 4,
-        "name": "Fake Study D"
-      }
-    ]
-  }
+  "studies": [
+    {
+      "id": 1,
+      "name": "Fake Study A",
+      "description": "This study focuses on the lorem ipsum of carpe diem. Erat ocurreret vel at, causae commodo eam cu, tritani saperet recusabo ex mea. Eum delenit praesent salutandi et, augue legimus hendrerit pri at. Id vis everti vocibus, velit accusata delicata vim no. Soleat torquatos ut has, porro recusabo id quo."
+    },
+    {
+      "id": 2,
+      "name": "Fake Study B",
+      "description": "This study focuses on the lorem ipsum of carpe diem. Erat ocurreret vel at, causae commodo eam cu, tritani saperet recusabo ex mea. Eum delenit praesent salutandi et, augue legimus hendrerit pri at. Id vis everti vocibus, velit accusata delicata vim no. Soleat torquatos ut has, porro recusabo id quo."
+    },
+    {
+      "id": 3,
+      "name": "Fake Study C",
+      "description": "This study focuses on the lorem ipsum of carpe diem. Erat ocurreret vel at, causae commodo eam cu, tritani saperet recusabo ex mea. Eum delenit praesent salutandi et, augue legimus hendrerit pri at. Id vis everti vocibus, velit accusata delicata vim no. Soleat torquatos ut has, porro recusabo id quo."
+    },
+    {
+      "id": 4,
+      "name": "Fake Study D",
+      "description": "This study focuses on the lorem ipsum of carpe diem. Erat ocurreret vel at, causae commodo eam cu, tritani saperet recusabo ex mea. Eum delenit praesent salutandi et, augue legimus hendrerit pri at. Id vis everti vocibus, velit accusata delicata vim no. Soleat torquatos ut has, porro recusabo id quo."
+    }
+  ]
 }

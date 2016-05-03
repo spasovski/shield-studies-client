@@ -7,7 +7,6 @@ const initialState = {
 const studyReducer = function(state = initialState, action) {
   switch(action.type) {
     case types.GET_STUDIES_SUCCESS:
-      console.log('hmm', action.studies);
       return Object.assign({}, state, {studies: action.studies});
   }
 

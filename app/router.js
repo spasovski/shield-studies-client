@@ -12,9 +12,7 @@ import StudyListContainer from './components/containers/study-list-container';
 export default (
   <Router history={browserHistory}>
     <Route component={MainLayout}>
-      <Route path="/">
-        <Route component={StudyListContainer} />
-      </Route>
+      <Route path="/" component={StudyListContainer} />
     </Route>
   </Router>
 );

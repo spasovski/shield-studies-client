@@ -37,16 +37,30 @@ gulp.task('serve:api', function(done) {
     .on('close', done);
 });
 
-// Server
-gulp.task('serve', function() {
+gulp.task('watch', function() {
+  gulp.watch(path.resolve(CSS, '**/*.styl'), ['css']);
+
   browserSync.init({
     index: 'index.html',
     //middleware: [connectFallback()],
     notify: false,
     open: false,
     port: 8000,
-    server: './',
+    server: './'
   });
 });
 
-gulp.task('default', ['css', 'webpack', 'serve', 'serve:api']);
+// Server
+// gulp.task('serve', function() {
+//   browserSync.init({
+//     index: 'index.html',
+//     //middleware: [connectFallback()],
+//     notify: false,
+//     open: false,
+//     port: 8000,
+//     server: './'
+//   });
+// });
+
+gulp.task('build', ['css']);
+gulp.task('default', ['css', 'serve:api', 'webpack', 'watch']);
