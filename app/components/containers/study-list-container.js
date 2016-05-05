@@ -4,8 +4,9 @@ import StudyList from '../views/study-list';
 import * as studyApi from '../../api/study-api';
 import store from '../../store';
 
+
 const StudyListContainer = React.createClass({
-  componentWillMount: function() {
+  componentDidMount: function() {
     studyApi.getStudies();
   },
   render: function() {
