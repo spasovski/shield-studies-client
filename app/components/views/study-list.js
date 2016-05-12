@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 
 export default function(props) {
@@ -7,7 +8,7 @@ export default function(props) {
       {props.studies.map(study => {
         return (
           <li key={study.id} className="study-list-item">
-            <h2 className="study-list-heading"><a href="#">{study.name}</a></h2>
+            <h2 className="study-list-heading"><Link to={'/studies/' + study.id}>{study.name}</Link></h2>
             <p>{study.description}</p>
           </li>
         );

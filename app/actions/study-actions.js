@@ -7,3 +7,10 @@ export function getStudiesSuccess(studies) {
     studies
   };
 }
+
+export function getStudySuccess(study) {
+  return {
+    type: types.GET_STUDY_SUCCESS,
+    study
+  };
+}
