@@ -7,6 +7,7 @@ var stylus = require('gulp-stylus');
 var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var cp = require('child_process');
+var connectFallback = require('connect-history-api-fallback');
 
 require('es6-promise').polyfill();
 
@@ -42,25 +43,13 @@ gulp.task('watch', function() {
 
   browserSync.init({
     index: 'index.html',
-    //middleware: [connectFallback()],
+    middleware: [connectFallback()],
     notify: false,
     open: false,
     port: 8000,
     server: './'
   });
 });
-
-// Server
-// gulp.task('serve', function() {
-//   browserSync.init({
-//     index: 'index.html',
-//     //middleware: [connectFallback()],
-//     notify: false,
-//     open: false,
-//     port: 8000,
-//     server: './'
-//   });
-// });
 
 gulp.task('build', ['css']);
 gulp.task('default', ['css', 'serve:api', 'webpack', 'watch']);

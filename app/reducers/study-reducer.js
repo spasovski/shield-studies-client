@@ -1,22 +1,11 @@
 import * as types from '../actions/action-types';
 
 
-const fields = {
-  completed: 0,
-  ineligible: 0,
-  installed: 0,
-  left_study: 0,
-  seen1: 0,
-  seen2: 0,
-  seen3: 0,
-  seen7: 0
-};
-
 const channel = {
-  medium: fields,
-  weak: fields,
-  aggressive: fields,
-  ut: fields
+  medium: {},
+  weak: {},
+  aggressive: {},
+  ut: {}
 };
 
 const initialState = {
