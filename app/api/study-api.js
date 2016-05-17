@@ -8,21 +8,22 @@ const mockEndpoints = {
 };
 
 const prodEndpoints = {
-  GET_STUDIES: 'https://shielddash.herokuapp.com/studies',
+  GET_STUDIES: 'https://shielddash.herokuapp.com/studies/',
   GET_STUDY: 'https://shielddash.herokuapp.com/studies/'
 }
 
 // TODO: Check node environment to set this.
-const endpoints = mockEndpoints;
+const endpoints = process.env.NODE_ENV === 'dev' ? mockEndpoints : prodEndpoints;
 
-// We should only hit this once signed in.
-var apiArgs = {
-  idtoken: localStorage.user_token
-};
+// Auth token from LS.
+let jwt = localStorage.user_token;
+let headers = {
+  Authorization: jwt
+}
 
 // Fetch list of studies.
 export function getStudies() {
-  return axios.get(endpoints.GET_STUDIES, {params: apiArgs}).then(response => {
+  return axios.get(endpoints.GET_STUDIES, {headers: headers}).then(response => {
     store.dispatch(getStudiesSuccess(response.data));
     return response;
   }).catch(err => {
@@ -32,7 +33,7 @@ export function getStudies() {
 
 // Fetch specific study.
 export function getStudy(studyId) {
-  return axios.get(endpoints.GET_STUDY + studyId, {params: apiArgs}).then(response => {
+  return axios.get(endpoints.GET_STUDY + studyId, {headers: headers}).then(response => {
     store.dispatch(getStudySuccess(response.data));
     return response;
   }).catch(err => {
