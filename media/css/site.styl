@@ -1,20 +1,27 @@
 $mild-blue = #4A90E2;
+$normal-text = rgba(0,0,0,0.6);
+$emphasis-text = rgba(0,0,0,0.9);
 
 body {
   background-color: #fff;
-  color: #000;
+  color: $normal-text;
   font-family: helvetica, sans-serif;
 }
+
 a {
   color: $mild-blue;
 }
+
 p {
   line-height: 1.5;
 }
+
 .global-wrapper {
-  width: 1024px;
   margin: 0 auto;
+  padding: 0 0 40px;
+  width: 1024px;
 }
+
 .primary-header {
   display: flex;
   font-size: 14px;
@@ -28,11 +35,13 @@ p {
     align-self: center;
   }
 }
+
 .studies-list {
   list-style: none;
   margin: 35px 0 0;
   padding: 0;
 }
+
 .study-list-item {
   margin-bottom: 35px;
 
@@ -40,12 +49,14 @@ p {
     font-size: 14px;
   }
 }
+
 .study-list-heading {
   border-bottom: 1px solid #000;
   font-size: 14px;
   font-weight: 500;
   padding: 0 0 10px;
 }
+
 .button {
   background-image: linear-gradient(-180deg, #BAD582 0%, #93AC67 100%);
   box-shadow: 0 2px 0 0 rgba(0,0,0,0.08), 0 4px 10px 0 rgba(0,0,0,0.10), inset 0 1px 0 1px rgba(255,255,255,0.25), inset 0 -2px 0 1px rgba(0,0,0,0.25);
@@ -59,6 +70,7 @@ p {
   text-shadow: 0 -1px 0 #4F7311;
   cursor: pointer;
 }
+
 .sign-in-content {
   padding: 55px 0;
   text-align: center;
@@ -68,6 +80,7 @@ p {
     font-weight: 200;
   }
 }
+
 .signed-in-wrapper {
   display: flex;
 
@@ -81,17 +94,20 @@ p {
     margin: 0 0 0 20px;
   }
 }
+
 .study-title {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 25px;
 }
+
 .release-channel-title {
   border-bottom: 1px solid #000;
   font-size: 14px;
   font-weight: 600;
   padding: 0 0 10px;
 }
+
 .study-wrapper {
   ul {
     list-style-type: none;
@@ -99,6 +115,7 @@ p {
     padding: 0;
   }
 }
+
 .study-results-row {
   display: flex;
   justify-content: space-between;
@@ -107,17 +124,30 @@ p {
   > * {
     font-size: 12px;
     font-weight: 400;
+    color: $emphasis-text;
     margin: 0;
     text-align: center;
     width: 11%;
 
     &:first-child {
+      color: $normal-text;
       padding-left: 10px;
       text-align: left;
       width: 12%;
     }
   }
-  &:nth-child(odd):not(.study-titles) {
+  &:nth-child(odd):not(.study-titles):not(.study-channel-totals-row) {
     background-color: #ecf1f7;
   }
+  &.study-titles > *:not(.study-field-faded) {
+    color: $normal-text;
+  }
+}
+
+.study-channel-totals-row {
+  border-top: 2px solid rgba(0,0,0,0.1);
+}
+
+.study-field-faded {
+  color: rgba(0,0,0,0.4);
 }

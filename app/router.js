@@ -8,7 +8,6 @@ import MainLayout from './components/layouts/main-layout';
 import StudyListContainer from './components/containers/study-list-container';
 import SignIn from './components/views/sign-in';
 import StudyDetailsContainer from './components/containers/study-details-container';
-//<Route path=":studyId" component={StudyDetailsContainer} />
 
 function requireAuth(nextState, replace) {
   if (!localStorage.user_token) {
@@ -22,9 +21,9 @@ function requireAuth(nextState, replace) {
 export default (
   <Router history={browserHistory}>
     <Route component={MainLayout}>
-      <Route path="/" component={StudyListContainer} onEnter={requireAuth} />
+      <Route path="/" component={StudyListContainer} name="home" onEnter={requireAuth} />
       <Route path="/studies" onEnter={requireAuth}>
-        <Route path=":studyId" component={StudyDetailsContainer} linkedHeading={true} />
+        <Route path=":studyId" component={StudyDetailsContainer} />
       </Route>
       <Route path="/signin" component={SignIn} />
     </Route>

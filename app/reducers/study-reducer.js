@@ -16,6 +16,12 @@ const initialState = {
       aurora: channel,
       beta: channel
     }
+  },
+  totals: {
+    release: {},
+    beta: {},
+    aurora: {},
+    all: {}
   }
 };
 
@@ -24,7 +30,7 @@ const studyReducer = function(state = initialState, action) {
     case types.GET_STUDIES_SUCCESS:
       return Object.assign({}, state, {studies: action.studies});
     case types.GET_STUDY_SUCCESS:
-      return Object.assign({}, state, {study: action.study});
+      return Object.assign({}, state, {study: action.study, totals: action.totals});
   }
 
   return state;

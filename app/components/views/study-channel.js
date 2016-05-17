@@ -8,7 +8,7 @@ export default function(props) {
     <article>
       <h3 className="release-channel-title">Firefox: {props.channelName}</h3>
       <StudyTitlesRow channel={props.channel} />
-      <StudyResultsList channel={props.channel} />
+      <StudyResultsList channel={props.channel} totals={props.totals} />
     </article>
   );
 }

@@ -1,11 +1,21 @@
 // Predefined to impose presentation order.
 export const studyFields = [
-  'completed',
-  'ineligible',
-  'installed',
-  'left_study',
   'seen1',
   'seen2',
   'seen3',
-  'seen7'
+  'seen7',
+  'installed',
+  'completed',
+  'ineligible',
+  'left_study'
 ];
+
+const fadedFields = [
+  'ineligible',
+  'left_study'
+];
+
+// Should the study field be treated as visually unimportant?
+export function isFieldFaded(field) {
+  return fadedFields.indexOf(field) !== -1;
+}
