@@ -28,7 +28,7 @@ const initialState = {
 const studyReducer = function(state = initialState, action) {
   switch(action.type) {
     case types.GET_STUDIES_SUCCESS:
-      return Object.assign({}, state, {studies: action.studies});
+      return Object.assign({}, state, {studies: action.studies.studies});
     case types.GET_STUDY_SUCCESS:
       return Object.assign({}, state, {study: action.study, totals: action.totals});
   }

@@ -16,7 +16,7 @@ const prodEndpoints = {
 const endpoints = process.env.NODE_ENV === 'dev' ? mockEndpoints : prodEndpoints;
 
 // Auth token from LS.
-let jwt = localStorage.user_token;
+let jwt = localStorage.getItem('user_token');
 let headers = {
   Authorization: 'JWT ' + jwt
 }
@@ -33,7 +33,7 @@ export function getStudies() {
 
 // Fetch specific study.
 export function getStudy(studyId) {
-  return axios.get(endpoints.GET_STUDY + studyId, {headers: headers}).then(response => {
+  return axios.get(endpoints.GET_STUDY + studyId + '/', {headers: headers}).then(response => {
     store.dispatch(getStudySuccess(response.data));
     return response;
   }).catch(err => {

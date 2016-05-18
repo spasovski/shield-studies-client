@@ -19,7 +19,7 @@ const LoginContainer = React.createClass({
     gapi.load('auth2', function() {
       // Yep - that's a global auth singleton.
       window.auth2 = gapi.auth2.init({
-        client_id: '676697640342-o9mhtndrj60dk7jksdmmunetfmuqng4q.apps.googleusercontent.com'
+        client_id: '263509446425-83g1gv3eus8qe7ss2hgr6ec7hc6krkaf.apps.googleusercontent.com'
       });
     });
   },
