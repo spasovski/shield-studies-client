@@ -6,7 +6,6 @@ var nib = require('nib');
 var stylus = require('gulp-stylus');
 var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
-var cp = require('child_process');
 var connectFallback = require('connect-history-api-fallback');
 
 require('es6-promise').polyfill();
@@ -32,13 +31,7 @@ gulp.task('css', function() {
     .pipe(browserSync.stream());
 });
 
-// Fake API
-gulp.task('serve:api', function(done) {
-  cp.exec('node_modules/.bin/json-server --watch db.json --port 3009', {stdio: 'inherit'})
-    .on('close', done);
-});
-
-gulp.task('watch', function() {
+gulp.task('serve', ['build'], function() {
   gulp.watch(path.resolve(CSS, '**/*.styl'), ['css']);
 
   browserSync.init({
@@ -46,10 +39,10 @@ gulp.task('watch', function() {
     middleware: [connectFallback()],
     notify: false,
     open: false,
-    port: 8000,
+    port: process.env.PORT || 8000,
     server: './'
   });
 });
 
-gulp.task('build', ['css']);
-gulp.task('default', ['css', 'serve:api', 'webpack', 'watch']);
+gulp.task('build', ['webpack', 'css']);
+gulp.task('default', ['serve']);
