@@ -18,7 +18,7 @@ const endpoints = process.env.NODE_ENV === 'dev' ? mockEndpoints : prodEndpoints
 // Auth token from LS.
 let jwt = localStorage.user_token;
 let headers = {
-  Authorization: jwt
+  Authorization: 'JWT ' + jwt
 }
 
 // Fetch list of studies.
