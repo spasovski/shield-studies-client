@@ -11,7 +11,7 @@ const StudyDetailsContainer = React.createClass({
   },
   render: function() {
     return (
-      <StudyDetails {...this.props.study} totals={this.props.totals} />
+      <StudyDetails {...this.props} />
     );
   }
 });
@@ -19,7 +19,8 @@ const StudyDetailsContainer = React.createClass({
 const mapStateToProps = function(store) {
   return {
     study: store.studyState.study,
-    totals: store.studyState.totals
+    totals: store.studyState.totals,
+    status: store.studyState.status
   };
 }
 

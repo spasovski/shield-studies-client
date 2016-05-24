@@ -18,7 +18,8 @@ const StudyListContainer = React.createClass({
 
 const mapStateToProps = function(store) {
   return {
-    studies: store.studyState.studies
+    studies: store.studyState.studies,
+    status: store.studyState.status
   };
 };
 

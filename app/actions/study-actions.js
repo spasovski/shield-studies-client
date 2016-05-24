@@ -9,6 +9,13 @@ export function getStudiesSuccess(studies) {
   };
 }
 
+export function getStudiesFailure(errCode) {
+  return {
+    type: types.GET_STUDIES_FAILURE,
+    status: errCode
+  };
+}
+
 const getChannelTotals = function(study, channel) {
   // Use function.apply() to initialize the return obj with values of 0.
   // example: {completed: 0, left_study: 0, seen1: 0,...}
@@ -52,5 +59,12 @@ export function getStudySuccess(study) {
     type: types.GET_STUDY_SUCCESS,
     study,
     totals
+  };
+}
+
+export function getStudyFailure(errCode) {
+  return {
+    type: types.GET_STUDY_FAILURE,
+    status: errCode
   };
 }
