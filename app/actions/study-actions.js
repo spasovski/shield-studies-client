@@ -2,6 +2,12 @@ import * as types from './action-types';
 import {studyFields} from '../constants';
 
 
+export function getStudiesFetching() {
+  return {
+    type: types.GETTING_STUDIES
+  };
+}
+
 export function getStudiesSuccess(studies) {
   return {
     type: types.GET_STUDIES_SUCCESS,
@@ -45,6 +51,12 @@ const getAllTotals = function(study) {
   });
 
   return result;
+}
+
+export function getStudyFetching() {
+  return {
+    type: types.GETTING_STUDY
+  };
 }
 
 export function getStudySuccess(study) {

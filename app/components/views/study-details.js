@@ -2,6 +2,7 @@ import React from 'react';
 import StudyChannel from './study-channel';
 import StudyTotalsRow from './study-totals-row';
 import FetchError from './fetch-error';
+import Loading from './loading';
 
 
 export default function(props) {
@@ -9,7 +10,7 @@ export default function(props) {
     return (<FetchError status={props.status} />);
   }
   return (
-    <div className="study-wrapper">
+    <div className={props.isFetching ? 'study-wrapper fetching' : 'study-wrapper'}>
       <h2 className="study-title">{props.study.study}</h2>
       {Object.keys(props.study.channels).map(channelName => {
         return (
@@ -17,6 +18,7 @@ export default function(props) {
         );
       })}
       <StudyTotalsRow totals={props.totals} />
+      <Loading />
     </div>
   );
 }

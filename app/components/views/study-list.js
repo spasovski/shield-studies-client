@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import FetchError from './fetch-error';
+import Loading from './loading';
 
 
 export default function(props) {
@@ -8,7 +9,7 @@ export default function(props) {
     return (<FetchError status={props.status} />);
   }
   return (
-    <ul className="studies-list">
+    <ul className={props.isFetching ? 'studies-list fetching' : 'studies-list'}>
       {props.studies.map(study => {
         return (
           <li key={study.id} className="study-list-item">
@@ -17,6 +18,7 @@ export default function(props) {
           </li>
         );
       })}
+      <Loading />
     </ul>
   );
 }

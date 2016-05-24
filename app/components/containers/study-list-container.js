@@ -18,6 +18,7 @@ const StudyListContainer = React.createClass({
 
 const mapStateToProps = function(store) {
   return {
+    isFetching: store.studyState.isFetching,
     studies: store.studyState.studies,
     status: store.studyState.status
   };
