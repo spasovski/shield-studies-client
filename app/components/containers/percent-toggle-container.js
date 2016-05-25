@@ -9,13 +9,15 @@ const PercentToggleContainer = React.createClass({
   _togglePercentage: function(evt) {
     let study = document.querySelector('.study-wrapper');
     if (study) {
-      study.querySelector('.percent-toggle .switch').classList.toggle('active');
+      study.querySelector('.percent-toggle .switch')
+           .classList.toggle('active');
       study.classList.toggle('show-percentage');
-    }
-    if (study.classList.contains('show-percentage')) {
-      store.dispatch(showPercentValues());
-    } else {
-      store.dispatch(hidePercentValues());
+
+      if (study.classList.contains('show-percentage')) {
+        store.dispatch(showPercentValues());
+      } else {
+        store.dispatch(hidePercentValues());
+      }
     }
   },
   render: function() {
