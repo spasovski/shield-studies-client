@@ -11,6 +11,7 @@ var connectFallback = require('connect-history-api-fallback');
 require('es6-promise').polyfill();
 
 var ROOT = './';
+var JS = path.resolve(ROOT, 'app');
 var CSS = path.resolve(ROOT, 'media/css');
 
 // Webpack
@@ -32,6 +33,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('serve', ['build'], function() {
+  gulp.watch([path.resolve(JS, '**/*.js'), '!' + path.resolve('media/js', 'bundle.js')], ['webpack']);
   gulp.watch(path.resolve(CSS, '**/*.styl'), ['css']);
 
   browserSync.init({
